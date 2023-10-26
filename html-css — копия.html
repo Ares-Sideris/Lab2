@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Neon Genesis Evangelion</title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen">
+
+    <style>
+        
+        .text {
+            padding-bottom: 10px;
+        }
+
+        
+        .images-container {
+            position: relative;
+            width: 300px;
+            height: 150px;
+            margin-bottom: 10px; 
+        }
+
+        .tb-container {
+            position: relative;
+            width: 500px;
+            height: 100px;
+            margin-bottom: 10px; 
+        }
+        
+        .images-container img {
+            position: absolute;
+            top: 200px;
+            left: 200px;
+            width: 100%;
+            height: 100%;
+        }
+
+        #image2 {
+            top: 240px;
+            left: 240px;
+        }
+
+        #image3 {
+            top: 280px;
+            left: 280px;
+        }
+
+
+	    .button-container {
+            margin: 10px 0;
+            display: flex;
+            justify-content: space-between; 
+        }
+
+        .buttonimg-container {
+            position: absolute;
+            top: 57%;
+            left: 10%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="text">
+        <main>
+            <h1>Как (не) понять Евангелион</h1>
+            <p onmouseover="changeFirstParagraph();" onmouseout="restoreFirstParagraph();">
+               «Евангелион» вышел в 1995 году и стал одним из самых влиятельных и значимых произведений японской анимации. Его всегда можно обнаружить в списках лучших аниме за всю историю, а фан-база вышла далеко за пределы обычных зрителей; в любви к сериалу признавались даже Илон Маск и Робин Уильямс. Споры вокруг него не утихают до сих пор — в комментариях тематических пабликов и на форумах, в формате YouTube-разборов или TikTok-видео. Люди не только стремятся разобрать многочисленные трактовки и теории, но и находят здесь отражение собственных битв и поисков.
+            </p>
+	    <p onmouseover="changeSecondParagraph(this);" onmouseout="restoreSecondParagraph(this);">
+                Невероятный успех «Евангелиона» запустил волну любительских и академических исследований, анализов и трактовок, которая не спадает даже 27 лет спустя и до сих пополняется новыми работами. На YouTube можно найти десятки видео с пересказом сюжета и объяснением происходящего, которые собрали миллионы просмотров. Вот на что можно обратить внимание при первом просмотре «Евангелиона».
+            </p>
+
+            <h2>Как лучше всего смотреть «Евангелион»?</h2>
+            <p class="news"><span class="date">Оптимальный вариант: </span>с 1-го по 24-й эпизод сериала и «Конец Евангелиона»</p>
+            <p class="news"><span class="date">Полный вариант: </span>с 1-го по 26-й эпизод сериала, фильмы «Смерть и перерождение» и «Конец Евангелиона»</p>
+          <p class="news"><span class="date">Самый быстрый вариант: </span>Самый быстрый вариант: фильмы «Смерть и перерождение» и «Конец Евангелиона»</p>
+</main>
+    </div>
+
+    <div class="button-container">
+        <button onclick="alert('Window Info: ' + JSON.stringify(window, null, 2));">Window</button>
+        <button onclick="alert('Navigator Info: ' + navigator.userAgent);">Navigator</button>
+        <button onclick="alert('Location Info: ' + location.href);">Location</button>
+        <button onclick="alert('Screen Info: Width ' + screen.width + ', Height ' + screen.height);">Screen</button>
+    </div>
+
+    <div class="tb-container">
+        <table>
+          <tr>
+            <th>Заголовок 1</th>
+            <th>Заголовок 2</th>
+          </tr>
+          <tr>
+            <td class="highlight-cell">Ячейка 1</td>
+            <td class="highlight-cell">Ячейка 2</td>
+          </tr>
+          <tr>
+            <td class="highlight-cell">Ячейка 3</td>
+            <td class="highlight-cell">Ячейка 4</td>
+          </tr>
+        </table>
+    </div>
+
+   <div class="images-container">
+        <img id="image1" src="EVA00.webp" alt="Image 1" style="z-index: 1;">
+        <img id="image2" src="EVA01.webp" style="z-index: 2;">
+        <img id="image3" src="EVA02.webp" style="z-index: 3;">
+    </div>
+
+    <div class="buttonimg-container">
+        <button onclick="document.getElementById('image2').style.opacity='0';">Скрыть средний слой</button>
+        <button onclick="document.getElementById('image2').style.opacity='1';">Показать средний слой</button>
+        <button onclick="swapLayers();">Поменять местами нижний и верхний слои</button>
+    </div>>
+
+    <script>
+	function changeFirstParagraph() {
+            const firstParagraph = document.querySelectorAll('p')[0];
+            firstParagraph.style.color = 'red';
+            firstParagraph.style.fontFamily = 'Arial';
+        }
+
+        function restoreFirstParagraph() {
+            const firstParagraph = document.querySelectorAll('p')[0];
+            firstParagraph.style.color = '';
+            firstParagraph.style.fontFamily = '';
+        }
+
+        function changeSecondParagraph(paragraphElement) {
+            paragraphElement.style.paddingRight = '3cm';
+            paragraphElement.style.textIndent = '2.5cm';
+        }
+
+        function restoreSecondParagraph(paragraphElement) {
+            paragraphElement.style.paddingRight = '';
+            paragraphElement.style.textIndent = '';
+        }
+
+
+        function swapLayers() {
+            let image1 = document.getElementById('image1');
+            let image3 = document.getElementById('image3');
+
+            let tempZIndex = image1.style.zIndex; 
+            image1.style.zIndex = image3.style.zIndex;
+            image3.style.zIndex = tempZIndex;
+        }
+    </script>
+</body>
+</html>
